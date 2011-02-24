@@ -23,7 +23,7 @@ args.shift();
 
 function walk(filename, callback) {
 	var stats = fs.statSync(filename);
-	if(stats.isFile() && filename.match(/\.js$/)) {
+	if(stats.isFile() && filename.match(/\.(js|html)$/)) {
 		callback(filename);
 	}
 	else if(stats.isDirectory()) {
@@ -161,6 +161,7 @@ function start(title, msg) {
 }
 
 if (args.length > 0) {
+    console.log("Hacked: Restarting on .html changes too")
 	start();	
 }
 else {
